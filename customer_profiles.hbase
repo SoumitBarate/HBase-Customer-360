@@ -1,0 +1,84 @@
+# 1. CREATE TABLE
+create 'customer_profiles', 'personal', 'service', 'usage'
+
+# 2. INSERT CUSTOMER 1 - RAHUL SHARMA
+put 'customer_profiles', 'CUST1001', 'personal:name', 'Rahul Sharma'
+put 'customer_profiles', 'CUST1001', 'personal:city', 'Pune'
+put 'customer_profiles', 'CUST1001', 'personal:mobile', '9876543210'
+put 'customer_profiles', 'CUST1001', 'service:plan', '5G Premium'
+put 'customer_profiles', 'CUST1001', 'service:status', 'Active'
+put 'customer_profiles', 'CUST1001', 'usage:data_usage', '25GB'
+
+# 3. INSERT CUSTOMER 2 - PRIYA PATEL
+put 'customer_profiles', 'CUST1002', 'personal:name', 'Priya Patel'
+put 'customer_profiles', 'CUST1002', 'personal:city', 'Mumbai'
+put 'customer_profiles', 'CUST1002', 'personal:mobile', '9876543211'
+put 'customer_profiles', 'CUST1002', 'service:plan', 'Unlimited 5G'
+put 'customer_profiles', 'CUST1002', 'service:status', 'Active'
+put 'customer_profiles', 'CUST1002', 'usage:data_usage', '40GB'
+
+# 4. INSERT CUSTOMER 3 - AMIT KUMAR
+put 'customer_profiles', 'CUST1003', 'personal:name', 'Amit Kumar'
+put 'customer_profiles', 'CUST1003', 'personal:city', 'Delhi'
+put 'customer_profiles', 'CUST1003', 'personal:mobile', '9876543212'
+put 'customer_profiles', 'CUST1003', 'service:plan', '5G Basic'
+put 'customer_profiles', 'CUST1003', 'service:status', 'Inactive'
+put 'customer_profiles', 'CUST1003', 'usage:data_usage', '10GB'
+
+# 5. INSERT CUSTOMER 4 - NEHA SHAH
+put 'customer_profiles', 'CUST1004', 'personal:name', 'Neha Shah'
+put 'customer_profiles', 'CUST1004', 'personal:city', 'Bangalore'
+put 'customer_profiles', 'CUST1004', 'personal:mobile', '9876543213'
+put 'customer_profiles', 'CUST1004', 'service:plan', 'Family 5G'
+put 'customer_profiles', 'CUST1004', 'service:status', 'Active'
+put 'customer_profiles', 'CUST1004', 'usage:data_usage', '55GB'
+
+# 6. INSERT CUSTOMER 5 - ROHAN VERMA
+put 'customer_profiles', 'CUST1005', 'personal:name', 'Rohan Verma'
+put 'customer_profiles', 'CUST1005', 'personal:city', 'Hyderabad'
+put 'customer_profiles', 'CUST1005', 'personal:mobile', '9876543214'
+put 'customer_profiles', 'CUST1005', 'service:plan', '5G Premium'
+put 'customer_profiles', 'CUST1005', 'service:status', 'Active'
+put 'customer_profiles', 'CUST1005', 'usage:data_usage', '30GB'
+
+# 7. RETRIEVE ONE CUSTOMER
+get 'customer_profiles', 'CUST1001'
+
+# 8. RETRIEVE MULTIPLE CUSTOMERS
+scan 'customer_profiles'
+
+# 9. RETRIEVE ONLY SPECIFIC COLUMN
+get 'customer_profiles', 'CUST1001', {COLUMN => 'personal:name'}
+
+# 10. UPDATE CUSTOMER CITY
+put 'customer_profiles', 'CUST1001', 'personal:city', 'Mumbai'
+
+# 11. UPDATE CUSTOMER PLAN
+put 'customer_profiles', 'CUST1002', 'service:plan', '5G Gold'
+
+# 12. DELETE ONE COLUMN
+delete 'customer_profiles', 'CUST1003', 'personal:city'
+
+# 13. COUNT TOTAL CUSTOMERS
+count 'customer_profiles'
+
+# 14. DISPLAY TABLE STRUCTURE
+describe 'customer_profiles'
+
+# 15. DISPLAY ALL TABLES
+list
+
+# 16. CHECK ONE CUSTOMER AFTER UPDATE
+get 'customer_profiles', 'CUST1001'
+
+# 17. DELETE ENTIRE CUSTOMER RECORD
+deleteall 'customer_profiles', 'CUST1005'
+
+# 18. COUNT CUSTOMERS AFTER DELETION
+count 'customer_profiles'
+
+# 19. DISABLE TABLE
+disable 'customer_profiles'
+
+# 20. DROP TABLE
+drop 'customer_profiles'
